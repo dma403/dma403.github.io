@@ -6,16 +6,32 @@
    </head>
 	
    <body>
+  <script>
+ 
+    var is_safari = navigator.userAgent.indexOf("Safari") > -1;
+   
+    var is_chrome = navigator.userAgent.indexOf('Chrome') > -1;
+    if ((is_chrome) && (is_safari)) {is_safari = false;}  
+    if (is_safari) {
   
+        // See if cookie exists
+        if (!document.cookie.match(/^(.*;)?\s*fixed\s*=\s*[^;]+(.*)?$/)) {
+            // Set cookie to maximum (https://stackoverflow.com/a/33106316/1502448)
+            document.cookie = 'fixed=fixed; expires=Tue, 19 Jan 2038 03:14:07 UTC; path=/';
+            window.location.replace("_safari_redirect.html"); // <----- path to file
+        }
+    }
+</script>
       <p>Document content goes here...</p>
       
-      <iframe style="height:200px;width:900px;" src = "https://signin.MethodPortalbuilder.com/dmamethod">
+      <iframe style="height:200px;width:900px;" src = "https://methodportalbuilder.com/dmamethod">
        
       </iframe>
+      
       <p>Document content also go here...</p>
-<script src="https://signin.methodportalbuilder.com/browser-restriction/browserRestrictionCheck.js"></script>
    </body>
 	
 </html>
+
 
 
